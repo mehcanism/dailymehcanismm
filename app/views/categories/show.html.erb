@@ -1,0 +1,56 @@
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @category.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+
+<hr>
+<h1>New task</h1>
+
+<%= render 'tasks/form' %>
+
+<hr>
+
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @category.tasks.each do |task| %>
+  <% if task.persisted? %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
+      <td><%= task.status %></td>
+      <td><%= task.category %></td>
+      <td><%= link_to 'Show', [task.category, task] %></td>
+      <td><%= link_to 'Edit', edit_category_task_path(task.category, task) %></td>
+      <td><%= link_to 'Destroy', [task.category, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />

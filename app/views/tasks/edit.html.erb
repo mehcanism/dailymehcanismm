@@ -1,0 +1,6 @@
+<h1>Editing task</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@task.category, @task] %> |
+<%= link_to 'Back', category_tasks_path(@task.category) %>
