@@ -19,6 +19,7 @@ class TasksController < ApplicationController
 
   # GET categories/1/tasks/1/edit
   def edit
+    @task = @category.tasks.find(params[:id])
   end
 
   # POST categories/1/tasks
@@ -34,7 +35,7 @@ class TasksController < ApplicationController
 
   # PUT categories/1/tasks/1
   def update
-    if @task.update_attributes(task_params)
+    if @task.update(task_params)
       redirect_to(@task.category)
     else
       render action: 'edit'
@@ -60,6 +61,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :description, :status, :category_id)
+      params.require(:task).permit(:name, :description, :status, :duedate, :category_id)
     end
 end

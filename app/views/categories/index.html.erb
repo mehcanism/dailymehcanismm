@@ -1,5 +1,6 @@
+<h1>Welcome, <%= current_user.email %></h1>
 
-<h1>Categories</h1>
+<h5>Categories</h5>
 
 <table>
   <thead>
@@ -16,7 +17,7 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
-        <td><%= category.user_id %></td>
+        <td><%= current_user.email %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>

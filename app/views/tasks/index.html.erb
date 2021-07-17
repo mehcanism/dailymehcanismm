@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Description</th>
     <th>Status</th>
+    <th>Due Date</th>
     <th>Category</th>
     <th></th>
     <th></th>
@@ -16,6 +17,7 @@
       <td><%= task.name %></td>
       <td><%= task.description %></td>
       <td><%= task.status %></td>
+      <td><%= task.duedate %></td>
       <td><%= task.category %></td>
       <td><%= link_to 'Show', [task.category, task] %></td>
       <td><%= link_to 'Edit', edit_category_task_path(task.category, task) %></td>
