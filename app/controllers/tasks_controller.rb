@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   # POST categories/1/tasks
   def create
-    @task = @category.tasks.build(task_params)
+    @task = @category.tasks.build(task_params.merge(userid: current_user.id))
 
     if @task.save
       redirect_to(@task.category)
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
 
   # PUT categories/1/tasks/1
   def update
-    if @task.update(task_params)
+    if @task.update(task_params.merge(userid: current_user.id))
       redirect_to(@task.category)
     else
       render action: 'edit'

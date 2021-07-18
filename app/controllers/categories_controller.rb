@@ -5,6 +5,8 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = current_user.categories
+    @tasks = Task.where(userid: current_user.id, duedate: Date.today)
+
   end
 
   # GET /categories/1 or /categories/1.json
@@ -62,6 +64,10 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = current_user.categories.find(params[:id])
+    end
+
+    def set_task
+      @task = @category.tasks.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
