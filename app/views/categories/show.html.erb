@@ -43,7 +43,7 @@
       <td><%= task.description %></td>
       <td><%= task.status %></td>
       <td><%= task.duedate %></td>
-      <td><%= task.category %></td>
+      <td><%= task.category.name %></td>
       <td><%= link_to 'Show', [task.category, task] %></td>
       <td><%= link_to 'Edit', edit_category_task_path(task.category, task) %></td>
       <td><%= link_to 'Destroy', [task.category, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
